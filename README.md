@@ -2,13 +2,23 @@
 
 webhook endpoint for gitlab + cisco spark
 
+Full documentation on gitlab webhooks are available [here](https://docs.gitlab.com/ce/user/project/integrations/webhooks.html)
 # Installation
 
+### From Source
 ```
 git clone https://github.com/kecorbin/gitlab-spark
 cd gitlab-spark
-docker build -t gitlab-spark .
-docker run -p 5000:5000 gitlab-spark
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+### Using Docker
+
+```
+docker run -p 5000:5000 kecorbin/gitlab-spark
 ```
 
 # Configuration
