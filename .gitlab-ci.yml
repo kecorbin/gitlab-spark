@@ -1,5 +1,22 @@
+stages:
+  - build
+  - test
+  - deploy
+
 build_image:
-  image: docker:latest
+  stage: build
   script:
-    - docker build -t gitlab-spark .
-    - docker run gitlab-spark /tests/run_tests.sh
+    - echo build
+
+test:
+  stage: test
+  script:
+    - echo "test"
+
+deploy:
+  stage: deploy
+  script:
+    - echo "deploying"
+
+    # - docker build -t gitlab-spark .
+    # - docker run gitlab-spark /tests/run_tests.sh
