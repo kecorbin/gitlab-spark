@@ -57,7 +57,7 @@ def pipeline_formatter(msg):
     commit_url = msg['commit']['url']
 
     sparkmsg = "## Pipeline Update for pipeline [#{0}]({1})"
-    sparkmsg += ""### Commit: [{2}]({3})"
+    sparkmsg += "\n\n### Commit: [{2}]({3})"
     sparkmsg += "\n\n### Build Job Status"
 
     sparkmsg = sparkmsg.format(pipeline_id, pipeline_url, commit_msg, commit_url)
