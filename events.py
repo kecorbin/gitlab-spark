@@ -63,7 +63,7 @@ def pipeline_formatter(msg):
     sparkmsg = sparkmsg.format(pipeline_id, pipeline_url, commit_msg, commit_url)
 
     for build in msg['builds']:
-        sparkmsg += "* **{}:** {}".format(build['name'], build['status'])
+        sparkmsg += "\n\n* **{}:** {}".format(build['name'], build['status'])
 
     return sparkmsg
 
