@@ -58,8 +58,8 @@ def note_formatter(msg):
     sparkmsg = ""
     sparkmsg += "{} just created a new [note]({}) in {}".format(user, note_url, repo)
     sparkmsg += "* {}".format(note)
-    
-    return "A note event occured"
+
+    return sparkmsg
 
 def builds_formatter(msg):
     build = msg
