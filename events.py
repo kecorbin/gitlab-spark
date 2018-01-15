@@ -49,7 +49,28 @@ def pipeline_formatter(msg):
     # repo = msg['project']['path_with_namespace']
     # url = msg['project']['web_url'] + '/pipelines'
     # return "Pipeline Event occurred in [{}]({})".format(repo, url)
-    return None
+    repo_name = msg['project']['path_with_namespace']
+    repo_url = msg['project']['web_url']
+    pipeline_id = msg['object_attributes']['id']
+    pipeline_url = repo_url + '/pipelines/{}'.format(pipeline_id)
+    commit_msg = msg['commit']['message']
+    commit_url = msg['commit']['url']
+
+    sparkmsg = """
+    ## Pipeline Update for pipeline [#{0}]({1})
+
+    Commit: [{2}][{3}]
+
+    #### Build Job Status
+
+    """
+
+    sparkmsg = sparkmsg.format(pipeline_id, pipeline_url, commit_msg, commit_url)
+
+    for build in msg['builds']:
+        sparkmsg += "* **{}:** {}".format(build['name'], build['status'])
+
+    return sparkmsg
 
 def note_formatter(msg):
     repo_url = msg['project']['web_url']
