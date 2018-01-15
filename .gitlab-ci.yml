@@ -1,0 +1,4 @@
+build_image:
+  script:
+    - docker build -t gitlab-spark .
+    - docker run gitlab-spark /tests/run_tests.sh
