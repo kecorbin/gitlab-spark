@@ -13,7 +13,7 @@ def event_handler(msg):
         'issue': issue_formatter,
         'pipeline': pipeline_formatter,
         'note': note_formatter,
-        'builds': builds_formatter,
+        'build': builds_formatter,
         'merge_request': merge_request_formatter
     }
 
