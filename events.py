@@ -54,6 +54,7 @@ def note_formatter(msg):
 def builds_formatter(msg):
     return "A build event occurred"
 
+
 def merge_request_formatter(msg):
     # glean important information from incoming message
     mr = msg['object_attributes']
