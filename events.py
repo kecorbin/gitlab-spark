@@ -107,12 +107,14 @@ def merge_request_formatter(msg):
     user = msg['user']['username']
     source_repo = mr['source']['path_with_namespace']
     target_repo = mr['target']['path_with_namespace']
+    target_repo_url = mr['target']['homepage']
     state = mr['state']
     title = mr['title']
+    merge_id = mr['iid']
     url = mr['url']
-
+    target_repo = "[{}]({})".format(target_repo, target_repo_url)
     # format spark message
     message = ""
-    message += "In {}.".format(target_repo)
-    message += "A [pull request]({}) was {} by {}".format(url, state, user)
+    message += "### In {}.  ".format(target_repo)
+    message += "[merge request #{}]({}) was {} by {}".format(merge_id, url, state, user)
     return message
