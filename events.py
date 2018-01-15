@@ -46,7 +46,7 @@ def issue_formatter(msg):
     return message
 
 def pipeline_formatter(msg):
-    return "A pipeline event occured"
+    return None
 
 def note_formatter(msg):
     return "A note event occured"
