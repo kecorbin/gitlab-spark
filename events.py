@@ -70,12 +70,14 @@ def builds_formatter(msg):
     build_id = build['build_id']
     stage = build['build_stage']
     repo = build['project_name']
+    commit_msg = build['commit']['message']
     repo_url = build['repository']['homepage'] + '/pipelines'
     sparkmsg = ""
     sparkmsg += "### Build update for build {}\n".format(build_id)
     sparkmsg += "\n\n**Repostory**: [{}]({})".format(repo, repo_url)
     sparkmsg += "\n\n**Status**: {}".format(status)
     sparkmsg += "\n\n**Stage**: {}".format(stage)
+    sparkmsg += "\n\n**Commit Message**: {}".format(commit_msg)
 
     return sparkmsg
 
