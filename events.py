@@ -52,13 +52,13 @@ def note_formatter(msg):
     return "A note event occured"
 
 def builds_formatter(msg):
-    build = msg['builds'][0]
+    build = msg
+    status = build['build_status']
     build_id = build['id']
-    stage = build['stage']
-    repo = msg['project']['path_with_namespace']
-    repo_url = msg['project']['web_url']
+    stage = build['build_stage']
+    repo = build['project_name']
+    repo_url = build['repository']['homepage']
     state = msg['object_attributes']['status']
-    sparkmsg = ""
     sparkmsg += "{} build event id {} In [{}]({})".format(state, build_id, repo, repo_url)
 
     return sparkmsg
