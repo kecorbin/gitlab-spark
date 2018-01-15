@@ -46,9 +46,10 @@ def issue_formatter(msg):
     return message
 
 def pipeline_formatter(msg):
-    repo = msg['project']['path_with_namespace']
-    url = msg['project']['web_url'] + '/pipelines'
-    return "Pipeline Event occurred in [{}]({})".format(repo, url)
+    # repo = msg['project']['path_with_namespace']
+    # url = msg['project']['web_url'] + '/pipelines'
+    # return "Pipeline Event occurred in [{}]({})".format(repo, url)
+    return None
 
 def note_formatter(msg):
     repo_url = msg['project']['web_url']
@@ -69,7 +70,7 @@ def builds_formatter(msg):
     build_id = build['build_id']
     stage = build['build_stage']
     repo = build['project_name']
-    repo_url = build['repository']['homepage']
+    repo_url = build['repository']['homepage'] + '/pipelines'
     sparkmsg = ""
     sparkmsg += "### Build update for build {}\n".format(build_id)
     sparkmsg += "\n\n**Repostory**: [{}]({})".format(repo, repo_url)
