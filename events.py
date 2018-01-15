@@ -46,7 +46,9 @@ def issue_formatter(msg):
     return message
 
 def pipeline_formatter(msg):
-    return None
+    repo = msg['project']['path_with_namespace']
+    url = msg['project']['web_url'] + '/pipelines'
+    return "Pipeline Event occurred in [{}]({})".format(repo, url)
 
 def note_formatter(msg):
     repo_url = msg['project']['web_url']
@@ -56,8 +58,8 @@ def note_formatter(msg):
     user = msg['user']['username']
 
     sparkmsg = ""
-    sparkmsg += "{} just created a new [note]({}) in {}".format(user, note_url, repo)
-    sparkmsg += "\n\n* {}".format(note)
+    sparkmsg += "**{} just created a new [note]({}) in {}:**".format(user, note_url, repo)
+    sparkmsg += "\n\n{}".format(note)
 
     return sparkmsg
 
