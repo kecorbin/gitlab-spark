@@ -56,7 +56,7 @@ def pipeline_formatter(msg):
     commit_msg = msg['commit']['message']
     commit_url = msg['commit']['url']
 
-    sparkmsg = "## Pipeline Update for pipeline [#{0}]({1})"
+    sparkmsg = "## NetDevops Pipeline update for pipeline [#{0}]({1})"
     sparkmsg += "\n\n[{2}]({3})"
     sparkmsg += "\n\n### Build Job Status"
 
