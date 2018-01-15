@@ -59,7 +59,7 @@ def builds_formatter(msg):
     repo = build['project_name']
     repo_url = build['repository']['homepage']
 
-    sparkmsg += "### BUILD DETAILS FOR BUILD ID: {}\n".format(build_id))
+    sparkmsg += "### BUILD DETAILS FOR BUILD ID: {}\n".format(build_id)
     sparkmsg += "*Repostory*: [{}]({})".format(repo, repo_url)
     sparkmsg += "*Status*: {}\n".format(status)
     sparkmsg += "*Stage*: {}\n".format(stage)
