@@ -13,6 +13,7 @@ def event_handler(msg):
         'issue': issue_formatter,
         'pipeline': pipeline_formatter,
         'note': note_formatter,
+        'builds': builds_formatter,
         'merge_request': merge_request_formatter
     }
 
@@ -50,10 +51,10 @@ def pipeline_formatter(msg):
 def note_formatter(msg):
     return "A note event occured"
 
-def merge_request_formatter(msg):
-    #output raw message for debugging
-    print(msg)
+def builds_formatter(msg):
+    return "A build event occurred"
 
+def merge_request_formatter(msg):
     # glean important information from incoming message
     mr = msg['object_attributes']
     source_branch = mr['source_branch']
