@@ -54,7 +54,7 @@ def note_formatter(msg):
 def builds_formatter(msg):
     build = msg
     status = build['build_status']
-    build_id = build['id']
+    build_id = build['build_id']
     stage = build['build_stage']
     repo = build['project_name']
     repo_url = build['repository']['homepage']
